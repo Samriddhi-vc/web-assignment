@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  
+ </head>
+<body>
+    <header>
+    
+        <h1>Expense Manager</h1>
+    </header>
+<!-- Summary Section -->
+    <section id="summary">
+        <div class="summary" >
+            <div class="flex">
+                <label>Cash Balance:</label><input type="text" id="cashbal">
+                <label>Bank Balance:</label> <input type="text" id="bankbal"> 
+            
+        </div>
+        <div class="flex-1">
+            <label class="lbl">Total Bank Income:</label><input type="text" id="bank">
+            <label class="lbl"> Total Cash Income:</label><input type="text" id="cash">
+            <label class="lbl">Total Bank Expense:</label><input type="text" id="bankexp">
+        </div>  
+        </div class="flex-2">
+            <label class="lbl">Total Cash Expense:</label><input type="text" id="cashexp">
+            <label class="lbl">Category Wise Expense:</label><input type="text" id="category">
+        </div>
+    </section>
+    <hr>
+
+<!-- Form Section -->
+    <section class= "form">
+        <h1>Calculating Expense</h1>
+        <div class="container">
+            <form id="myform" onsubmit="expense();">
+              <div class="row">
+                <div class="col-25">
+                  <label for="date">Date</label>
+                </div>
+                <div class="col-75">
+                  <input type="date" id="date" name="date">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="type">Type</label>
+                </div>
+                <div  id="type" class="col-75">
+                    <label class="container1">Expenditure
+                        <input type="radio" checked="checked" name="type"  value="expenditure" onclick="typeselection(0);" >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container1">Income
+                        <input type="radio"   name="type" value="income" onclick="typeselection(1);">
+                        <span class="checkmark"></span>
+                      </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="type">From/To</label>
+                </div>
+                <div id="from" class="col-75">
+                    <label class="container1">Bank
+                        <input type="radio" checked="checked" name="from" value="bank"  >
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="container1">Cash
+                        <input type="radio"  name="from" value="cash" >
+                        <span class="checkmark"></span>
+                      </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="category">Category</label>
+                </div>
+                <div class="col-75">
+                  <select id="category" name="category">
+                    <option value="Select">Select</option>
+                    <option>Salary</option>
+                    <option>Interest</option>
+                    <option>Misc</option>
+                    <!-- <select id="expend"></select>
+                    <option value="Select">Select</option> -->
+                    <option>Household</option>
+                    <option>Bills</option>
+                    <option>Food</option>
+                    <option>Fuel</option>
+                    <option>Health</option> 
+                    <option>Shopping</option>
+                    <!-- <option value="expense">Expense Category</option>
+                    <option value="income">Income Category</option> -->
+                  </select>
+                 
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="tag">Tag</label>
+                </div>
+                <div class="col-75">
+                    <label class="container2">Rent
+                        <input type="checkbox" value="rent" onclick="tag();" >
+                        <span class="checkmark1"></span>
+                      </label>
+                      <label class="container2">Furniture
+                        <input type="checkbox" value="furniture" onclick="tag();">
+                        <span class="checkmark1"></span>
+                      </label>
+                      <label class="container2">Decor
+                        <input type="checkbox" value="decor" onclick="tag();">
+                        <span class="checkmark1"></span>
+                      </label>
+                      <label class="container2">Electronics
+                        <input type="checkbox" value="electronics" onclick="tag();">
+                        <span class="checkmark1"></span>
+                      </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="remark">Remarks</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="remark" name="remark" placeholder="Enter Remark">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-25">
+                  <label for="amountt">Amount</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="amount" name="amount" placeholder="Enter Amount">
+                </div>
+              </div>
+              <div class="row">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear">
+              </div>
+            </form>
+    </section>
+<!-- Detail Section -->
+    <section id="detail">
+        <h1>Expense Detail</h1>
+        <table id="details">
+            <tr>
+              <th>Company</th>
+              <th>Contact</th>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Type</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>From/To</td>
+              <td></td>
+             
+            </tr>
+            <tr>
+              <td>Category</td>
+              <td></td>
+            <tr>
+              <td>Tag</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Remark</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Amount</td>
+              <td></td>
+            </tr>
+          </table>
+
+    </section>
+    <hr>
+    <footer>
+        
+        <p>Created by Samriddhi Mishra</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
